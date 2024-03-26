@@ -22,6 +22,7 @@ var
   suma: real;
   e: empleado;
 begin
+  read(detalle, e);
   while (e.codigo <> valorAlto) do begin
     actual := e.codigo;
     suma := 0;
@@ -31,7 +32,7 @@ begin
     end;
     write(maestro, e);
   end;
-end;
+end;    
 
 var 
   maestro, detalle: archEmpleados;
