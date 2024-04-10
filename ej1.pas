@@ -22,14 +22,15 @@ var
   suma: real;
   e: empleado;
 begin
-  read(detalle, e);
+  leer(detalle, e);
   while (e.codigo <> valorAlto) do begin
     actual := e.codigo;
     suma := 0;
-    while (codigo = actual) do begin
+    while (e.codigo = actual) do begin
       suma := suma + e.comision;
       leer(detalle, e);
     end;
+    e.comision := suma;
     write(maestro, e);
   end;
 end;    
@@ -41,7 +42,9 @@ begin
   reset(detalle);
   assign(maestro, 'resumen.dat');
   rewrite(maestro);
+
   resumir(maestro, detalle);
+  
   close(maestro);
   close(detalle);
 end.

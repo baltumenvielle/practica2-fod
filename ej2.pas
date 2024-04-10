@@ -33,6 +33,11 @@ begin
   read(detalle, d);
   while (d.codigo <> valorAlto) do begin
     actual := d.codigo;
+
+    read(maestro, a);
+    finales := a.finales;
+    cursadas := a.cursadas;
+
     while (codigo = actual) do begin
       if (d.final) then begin
         finales := finales + 1;
@@ -42,7 +47,9 @@ begin
         cursadas := cursadas + 1;
       leer(detalle, d);
     end;
-    read(maestro, a);
+
+    while (a.codigo <> actual) do
+      read(maestro, a);
     seek(maestro, filePos(maestro)-1);
     a.cursadas := cursadas;
     a.finales := finales;
