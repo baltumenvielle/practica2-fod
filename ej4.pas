@@ -18,9 +18,9 @@ type
 procedure leer(var detalle: detail; var v: venta);
 begin
   if (not eof(detalle)) then
-    read(detalle, e)
+    read(detalle, v)
   else
-    e.codigo := valorAlto;
+    v.codigo := valorAlto;
 end;
 
 procedure minimo(var det1: detail; var det2: detail; var r1: det; var r2: det; var min: det);

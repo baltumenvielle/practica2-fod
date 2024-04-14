@@ -18,9 +18,9 @@ type
 procedure leer(var detalle: detail; var v: venta);
 begin
   if (not eof(detalle)) then
-    read(detalle, e)
+    read(detalle, v)
   else
-    e.codigo := valorAlto;
+    v.codigo := valorAlto;
 end;
   
 procedure opcion1(var maestro: master; var detalle: detail);
