@@ -86,7 +86,7 @@ begin
   for i := 1 to 30 do begin
     assign(detalle[i], 'detalle'+ i);
     reset(detalle[i]);
-    leer(detalle[i], regD[i]);
+    leer(detalle[i], d[i]);
   end;
 
   assign(maestro, 'maestro.dat');
