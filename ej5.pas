@@ -18,12 +18,12 @@ type
   vectorDetalles = array [1..30] of detail;
   vectorRegistros = array [1..30] of det;
 
-procedure leer(var detalle: detail; var p: producto);
+procedure leer(var detalle: detail; var d: det);
 begin
   if (not eof(detalle)) then
-    read(detalle, p)
+    read(detalle, d)
   else
-    p.codigo := valorAlto;
+    d.codigo := valorAlto;
 end;
 
 procedure minimo(var v: vectorRegistros; var min: det; var d: vectorDetalles);
@@ -41,11 +41,10 @@ begin
   leer(d[pos], v[pos])
 end;
 
-procedure crearMaestro(var maestro: master; var d: vectorDetales);
+procedure crearMaestro(var maestro: master; var d: vectorDetalles; v: vectorRegistros);
 var
   min: det;
   p: producto;
-  v: vectorRegistros;
 begin
   minimo(v, min, d);
   while (min.codigo <> valorAlto) do begin
@@ -80,18 +79,19 @@ end;
 var
   maestro: master;
   d: vectorDetalles;
+  v: vectorRegistros;
   i: integer;
 begin
   for i := 1 to 30 do begin
-    assign(detalle[i], 'detalle'+ i);
-    reset(detalle[i]);
-    leer(detalle[i], d[i]);
+    assign(d[i], 'detalle'+ i);
+    reset(d[i]);
+    leer(d[i], v[i]);
   end;
 
   assign(maestro, 'maestro.dat');
   reset(maestro);
 
-  crearMaestro(maestro, d);
+  crearMaestro(maestro, d, v);
   informarTexto(maestro);
 
   close(maestro);
