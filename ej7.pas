@@ -41,7 +41,7 @@ begin
   assign(maestro, 'maestro.dat');
   reset(maestro);
 
-  crearMaestro(maestro, d, v);
+  actualizarMaestro(maestro, d, v);
   informarCasosActivos(maestro);
 
   close(maestro);

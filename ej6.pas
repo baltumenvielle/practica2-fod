@@ -76,7 +76,7 @@ begin
   end;
 
   assign(maestro, '/var/log/maestro.dat');
-  reset(maestro);
+  rewrite(maestro);
 
   crearMaestro(maestro, d, v);
 
