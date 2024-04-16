@@ -41,13 +41,13 @@ begin
   leer(d[pos], v[pos])
 end;
 
-procedure crearMaestro(var maestro: master);
+procedure crearMaestro(var maestro: master; var d: vectorDetales);
 var
   min: det;
   p: producto;
   v: vectorRegistros;
-  d: vectorDetalles;
 begin
+  minimo(v, min, d);
   while (min.codigo <> valorAlto) do begin
     read(maestro, p);
     while (p.codigo <> min.codigo) do
@@ -79,7 +79,6 @@ end;
 
 var
   maestro: master;
-  v: vectorRegistros;
   d: vectorDetalles;
   i: integer;
 begin
@@ -92,7 +91,7 @@ begin
   assign(maestro, 'maestro.dat');
   reset(maestro);
 
-  crearMaestro(maestro);
+  crearMaestro(maestro, d);
   informarTexto(maestro);
 
   close(maestro);
