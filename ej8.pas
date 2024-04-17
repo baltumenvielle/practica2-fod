@@ -29,7 +29,7 @@ var
   total, total_mensual, total_anual: real;
 begin
   total := 0;
-  read(maestro, c);
+  leer(maestro, c);
   while (c.codigo <> valorAlto) do begin
     actual := c.codigo;
     while (c.codigo = actual) do begin

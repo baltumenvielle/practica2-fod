@@ -23,7 +23,7 @@ var
   total, total_provincia, total_localidad, actual_provincia, actual_localidad: integer;
 begin
   total := 0;
-  read(maestro, m);
+  leer(maestro, m);
   while (m.provincia <> valorAlto) do begin
     actual_provincia := m.provincia;
     writeln(actual_provincia);
