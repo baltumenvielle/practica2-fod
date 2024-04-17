@@ -24,7 +24,35 @@ type
   vectorDetalles = array [1..10] of detail;
   vectorRegistros = array [1..10] of municipio;
 
+procedure leer(var detalle: detail; var m: municipio);
+begin
+  if (not eof(detalle)) then
+    read(detalle, m)
+  else
+    m.codigo := valorAlto;
+end;
 
+procedure minimo(var v: vectorRegistros; var min: municipio; var d: vectorDetalles);
+var
+  i, pos, minimo: integer;
+begin
+  minimo := 9999;
+  for i:=1 to 10 do begin
+    if (v[i].codigo < minimo) then begin
+      minimo := v[i].codigo;
+      pos := i;
+    end;
+  end;
+  min := v[pos];
+  leer(d[pos], v[pos])
+end;
+
+procedure actualizarMaestro(var maestro: master; var d: vectorDetalles: v: vectorRegistros);
+var
+  min: municipio;
+begin
+  minimo(v, min, d);
+end;
 
 var
   maestro: master;
